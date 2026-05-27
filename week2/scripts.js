@@ -1,28 +1,33 @@
-
-
 let root = document.getElementById("root");
 let postsButton = document.getElementById("posts");
 
-function onButtonClick(){
-fetch('https://jsonplaceholder.typicode.com/posts/ ')
+function onButtonClick() {
+
+  fetch("https://jsonplaceholder.typicode.com/users")
+
     .then((response) => response.json())
-    .then(( json) => render( json));
+
+    .then((json) => render(json));
+
 }
 
 postsButton.addEventListener("click", onButtonClick);
 
 function render(data) {
-    for (let i = 0; i < data.length; i++) {
-        let h2 = document.createElement("h2");
-        let p = document.createElement("p");
 
+  for (let i = 0; i < data.length; i++) {
 
-    h2.innerText = data[0].title;
-    p.innerText = data[0].body;
-    
+    let h2 = document.createElement("h2");
+    let p = document.createElement("p");
+
+    h2.innerText = data[i].name;
+
+    p.innerText = data[i].email;
+
     root.appendChild(h2);
+
     root.appendChild(p);
-    }
+
+  }
+
 }
-
-
