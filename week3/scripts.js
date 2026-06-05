@@ -3,6 +3,7 @@ let root = document.getElementById("root");
 let uploadButton = document.getElementById("upload");
 let titleInput = document.getElementById("title");
 let bodyTextarea = document.getElementById("body");
+let userIdInput = document.getElementById("userId");
 
 let data = [];
 
@@ -24,13 +25,14 @@ function render() {
 function buttonClick() {
     let titleValue = titleInput.value;
     let bodyTextValue = bodyTextarea.value;
+    let userIdValue = userIdInput.value;
 
     fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify({
         title: titleValue,
         body: bodyTextValue,
-        userId: 1,
+        userId: userIdValue,
     }),
     headers: {
         'Content-type': 'application/json; charset=UTF-8',
